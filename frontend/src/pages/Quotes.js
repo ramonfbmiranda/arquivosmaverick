@@ -28,7 +28,11 @@ const Quotes = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleAddQuote = async (e) => {
     e.preventDefault();
