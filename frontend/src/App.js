@@ -20,6 +20,8 @@ function App() {
           <Route path="/members/:memberId" element={<MemberProfile />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/quotes" element={<Quotes />} />
+          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/bordoes" element={<Bordoes />} />
           <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </BrowserRouter>
