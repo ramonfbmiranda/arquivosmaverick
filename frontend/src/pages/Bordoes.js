@@ -17,7 +17,8 @@ function Bordoes() {
     "Não beleza",
     "Cabeça e pescoço",
     "Eu tentei",
-    "Vai ficar nessa"
+    "Vai ficar nessa",
+    "AGACHA"
   ];
 
   const rotations = [-2, 1, -1.5, 2, -2.5, 1.5, -1, 2.5, -3, 1.5, -2, 2];
