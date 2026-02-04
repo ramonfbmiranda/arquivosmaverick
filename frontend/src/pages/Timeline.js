@@ -8,7 +8,8 @@ function Timeline() {
   const events = [
     { year: "2019", title: "O Início", description: "Davi e Julliano se tornam amigos" },
     { year: "2020", title: "CEI Zona Sul", description: "Ítalo e Davi se tornam amigos no CEI Zona Sul" },
-    { year: "Final de 2020", title: "Primeira Saída", description: "Julliano sai do CEI" },
+    { year: "2021", title: "Ramon e Felipe", description: "Felipe e Ramon se tornam amigos" },
+    { year: "2021", title: "Saída do Juju", description: "Julliano sai do CEI" },
     { year: "2022", title: "A Chegada do Poste", description: "PH chega no CEI, fazendo amizade com Ítalo e Davi após alguns meses, depois fazendo amizade com Gabriel" },
     { year: "2022", title: "Parada de Ônibus", description: "PH faz amizade com Ramon na parada de ônibus" },
     { year: "Metade de 2022", title: "Expansão", description: "Ramon se junta na amizade com Ítalo, Davi e Gabriel vindo pela amizade com PH. Felipe é colega do pessoal mas amigo somente de Ramon e PH. Se cria o grupo dos caras" },
@@ -18,8 +19,8 @@ function Timeline() {
     { year: "2023", title: "Rolês na Casa do Marrom", description: "Rolês na casa de Ramon jogando PS4, piscina e dormindo, consolidando a Gangue da Maverick" },
     { year: "2023", title: "Fim de Uma Era", description: "Fim do pré/último ano da escola CEI" },
     { year: "2024", title: "Juju Retorna", description: "Julliano se junta ao grupo via calls do Discord jogando" },
-    { year: "2024", title: "Aqueles Caras", description: "Muitas calls no Discord, assistindo Aqueles Caras toda terça, e rolês assistindo futebol no Espeto do Bombado e jogos de PS4 na casa de Ramon novamente" },
-    { year: "2024/2025", title: "Games da Maverick", description: "O grupo jogou Minecraft e MTA em 2024 e muito Valorant no final de 2024 pra 2025, além de assistir Aqueles Caras toda terça em 2024 por boa parte do ano" }
+    { year: "2024", title: "Ano dos Games e Rolês", description: "Muitas calls no Discord jogando Minecraft e Valorant no final do ano. Assistindo 'Aqueles Caras' toda terça na call. Rolês assistindo futebol no Espeto do Bombado e dormidas na Ramon House com PS4 e violão" },
+    { year: "2025", title: "Maturidade da Gangue", description: "Muita gameplay de MTA, rolês em aniversários e festas. A maioria do grupo se comprometeu com namoros e começou a trabalhar" }
   ];
 
   return (
