@@ -58,19 +58,11 @@ function Bordoes() {
               className="bg-maverick-yellow text-black p-6 shadow-2xl relative"
               style={{ rotate: `${rotations[index % 12]}deg` }}
             >
-              <MessageCircle className="absolute top-3 right-3 w-6 h-6 opacity-30" />
+              <MessageCircle className="absolute top-3 right-3 w-6 h-6 opacity-20" />
               
-              <div className="mb-4 pt-2">
-                <h3 className="text-2xl font-black-ops uppercase text-center">
-                  "{bordao.frase}"
-                </h3>
-              </div>
-
-              <div className="border-t-2 border-black pt-4">
-                <p className="font-courier-prime text-sm leading-relaxed text-center">
-                  {bordao.contexto}
-                </p>
-              </div>
+              <h3 className="text-2xl md:text-3xl font-black-ops uppercase text-center">
+                "{bordao}"
+              </h3>
             </motion.div>
           ))}
         </div>
