@@ -55,7 +55,7 @@ function Bordoes() {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05, rotate: 0 }}
               transition={{ type: "spring" }}
-              className="bg-maverick-yellow text-black p-6 shadow-2xl relative"
+              className="bg-maverick-yellow text-black p-8 shadow-2xl relative flex items-center justify-center min-h-[150px]"
               style={{ rotate: `${rotations[index % 12]}deg` }}
             >
               <MessageCircle className="absolute top-3 right-3 w-6 h-6 opacity-20" />
