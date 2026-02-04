@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Users, Search, ImageIcon, MessageSquareQuote, ShieldAlert } from "lucide-react";
@@ -12,11 +12,7 @@ const MembersGrid = () => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchMembers();
-  }, []);
-
-  const fetchMembers = async () => {
+  const fetchMembers = useCallback(async () => {
     try {
       const response = await axios.get(`${API}/members`);
       setMembers(response.data);
