@@ -6,6 +6,8 @@ import MemberProfile from "@/pages/MemberProfile";
 import Gallery from "@/pages/Gallery";
 import Quotes from "@/pages/Quotes";
 import AdminPanel from "@/pages/AdminPanel";
+import Timeline from "@/pages/Timeline";
+import Bordoes from "@/pages/Bordoes";
 
 function App() {
   return (
