@@ -6,54 +6,18 @@ function Bordoes() {
   const navigate = useNavigate();
 
   const bordoes = [
-    {
-      frase: "Ei lá ele",
-      contexto: "Para brincar com o uso repetitivo da expressão 'lá ele' do grupo"
-    },
-    {
-      frase: "Ain lula",
-      contexto: "Uma brincadeira com o nome Lula"
-    },
-    {
-      frase: "Quem lembra?",
-      contexto: "Quando for chamar pra fazer qualquer coisa. Ex: 'Minecraft quem lembra'"
-    },
-    {
-      frase: "Tira o já",
-      contexto: "Em homenagem a um meme"
-    },
-    {
-      frase: "Vai dar no boy?",
-      contexto: "Quando alguém foi muito grosso"
-    },
-    {
-      frase: "Hoje eu vou parar no bailão",
-      contexto: "Trecho de uma música da banda Grafitth, muito cantada pelos membros"
-    },
-    {
-      frase: "Ah meninão",
-      contexto: "Pra enaltecer algo de alguém do grupo"
-    },
-    {
-      frase: "ENNNgole",
-      contexto: "Expressão de humor nonsense"
-    },
-    {
-      frase: "Não beleza",
-      contexto: "Pra dizer algo que não gostou em tom de humor"
-    },
-    {
-      frase: "Cabeça e pescoço",
-      contexto: "Referente a um cirurgião de cabeça e pescoço do Aqueles Caras, em que muitos acreditavam que não existe"
-    },
-    {
-      frase: "Eu tentei",
-      contexto: "Referente ao Chico Moedas"
-    },
-    {
-      frase: "Vai ficar nessa",
-      contexto: "Uma das melhores expressões do grupo, quando alguém fazia algum comportamento repetitivo ou chato"
-    }
+    "Ei lá ele",
+    "Ain lula",
+    "Quem lembra?",
+    "Tira o já",
+    "Vai dar no boy?",
+    "Hoje eu vou parar no bailão",
+    "Ah meninão",
+    "ENNNgole",
+    "Não beleza",
+    "Cabeça e pescoço",
+    "Eu tentei",
+    "Vai ficar nessa"
   ];
 
   const rotations = [-2, 1, -1.5, 2, -2.5, 1.5, -1, 2.5, -3, 1.5, -2, 2];
