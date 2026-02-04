@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, MessageSquare, Send } from "lucide-react";
@@ -15,11 +15,7 @@ const MemberProfile = () => {
   const [loading, setLoading] = useState(true);
   const [newComment, setNewComment] = useState({ author_name: "", text: "" });
 
-  useEffect(() => {
-    fetchMemberData();
-  }, [memberId]);
-
-  const fetchMemberData = async () => {
+  const fetchMemberData = useCallback(async () => {
     try {
       const [memberRes, commentsRes] = await Promise.all([
         axios.get(`${API}/members/${memberId}`),
