@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, UserPlus, Edit, Trash2, Save } from "lucide-react";
@@ -24,11 +24,7 @@ const AdminPanel = () => {
     photo_url: ""
   });
 
-  useEffect(() => {
-    fetchMembers();
-  }, []);
-
-  const fetchMembers = async () => {
+  const fetchMembers = useCallback(async () => {
     try {
       const response = await axios.get(`${API}/members`);
       setMembers(response.data);
