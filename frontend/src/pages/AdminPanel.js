@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, UserPlus, Edit, Trash2, Save } from "lucide-react";
@@ -24,7 +24,11 @@ const AdminPanel = () => {
     photo_url: ""
   });
 
-  const fetchMembers = useCallback(async () => {
+  useEffect(() => {
+    loadMembers();
+  }, []);
+
+  const loadMembers = async () => {
     try {
       const response = await axios.get(`${API}/members`);
       setMembers(response.data);
@@ -33,11 +37,7 @@ const AdminPanel = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
-
-  useEffect(() => {
-    fetchMembers();
-  }, [fetchMembers]);
+  };
 
   const handleEdit = (member) => {
     setEditingId(member.id);
@@ -85,7 +85,7 @@ const AdminPanel = () => {
       }
       setEditingId(null);
       setShowAddForm(false);
-      fetchMembers();
+      loadMembers();
     } catch (error) {
       console.error("Erro ao salvar membro:", error);
     }
@@ -96,7 +96,7 @@ const AdminPanel = () => {
     
     try {
       await axios.delete(`${API}/members/${memberId}`);
-      fetchMembers();
+      loadMembers();
     } catch (error) {
       console.error("Erro ao deletar membro:", error);
     }

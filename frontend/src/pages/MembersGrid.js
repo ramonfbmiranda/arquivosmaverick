@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Users, Search, ImageIcon, MessageSquareQuote, ShieldAlert } from "lucide-react";
@@ -12,20 +12,19 @@ const MembersGrid = () => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchMembers = useCallback(async () => {
-    try {
-      const response = await axios.get(`${API}/members`);
-      setMembers(response.data);
-    } catch (error) {
-      console.error("Erro ao buscar membros:", error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    fetchMembers();
-  }, [fetchMembers]);
+    const loadMembers = async () => {
+      try {
+        const response = await axios.get(`${API}/members`);
+        setMembers(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar membros:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadMembers();
+  }, []);
 
   const rotations = [-2, 1, -1, 2, -1.5, 1.5, -2.5, 2];
 

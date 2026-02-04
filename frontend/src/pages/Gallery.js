@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ImagePlus, Trash2 } from "lucide-react";
@@ -14,7 +14,11 @@ const Gallery = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newPhoto, setNewPhoto] = useState({ url: "", caption: "" });
 
-  const fetchPhotos = useCallback(async () => {
+  useEffect(() => {
+    loadPhotos();
+  }, []);
+
+  const loadPhotos = async () => {
     try {
       const response = await axios.get(`${API}/photos`);
       setPhotos(response.data);
@@ -23,11 +27,7 @@ const Gallery = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
-
-  useEffect(() => {
-    fetchPhotos();
-  }, [fetchPhotos]);
+  };
 
   const handleAddPhoto = async (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ const Gallery = () => {
       await axios.post(`${API}/photos`, newPhoto);
       setNewPhoto({ url: "", caption: "" });
       setShowAddForm(false);
-      fetchPhotos();
+      loadPhotos();
     } catch (error) {
       console.error("Erro ao adicionar foto:", error);
     }
@@ -48,7 +48,7 @@ const Gallery = () => {
     
     try {
       await axios.delete(`${API}/photos/${photoId}`);
-      fetchPhotos();
+      loadPhotos();
     } catch (error) {
       console.error("Erro ao deletar foto:", error);
     }

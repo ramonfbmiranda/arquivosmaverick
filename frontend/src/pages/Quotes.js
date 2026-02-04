@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Quote as QuoteIcon, Trash2, Plus } from "lucide-react";
@@ -15,12 +15,14 @@ const Quotes = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newQuote, setNewQuote] = useState({ text: "", context: "", member_id: "" });
 
-  const fetchData = useCallback(async () => {
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
     try {
-      const [quotesRes, membersRes] = await Promise.all([
-        axios.get(`${API}/quotes`),
-        axios.get(`${API}/members`)
-      ]);
+      const quotesRes = await axios.get(`${API}/quotes`);
+      const membersRes = await axios.get(`${API}/members`);
       setQuotes(quotesRes.data);
       setMembers(membersRes.data);
     } catch (error) {
@@ -28,11 +30,7 @@ const Quotes = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  };
 
   const handleAddQuote = async (e) => {
     e.preventDefault();
@@ -46,7 +44,7 @@ const Quotes = () => {
       });
       setNewQuote({ text: "", context: "", member_id: "" });
       setShowAddForm(false);
-      fetchData();
+      loadData();
     } catch (error) {
       console.error("Erro ao adicionar citação:", error);
     }
@@ -57,7 +55,7 @@ const Quotes = () => {
     
     try {
       await axios.delete(`${API}/quotes/${quoteId}`);
-      fetchData();
+      loadData();
     } catch (error) {
       console.error("Erro ao deletar citação:", error);
     }
