@@ -2,6 +2,7 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "@/pages/LandingPage";
 import MembersGrid from "@/pages/MembersGrid";
+import MemberProfile from "@/pages/MemberProfile";
 import Gallery from "@/pages/Gallery";
 import Quotes from "@/pages/Quotes";
 import AdminPanel from "@/pages/AdminPanel";
