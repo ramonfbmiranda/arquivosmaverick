@@ -14,7 +14,6 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/members" element={<MembersGrid />} />
-          <Route path="/members/:memberId" element={<MemberProfile />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/quotes" element={<Quotes />} />
           <Route path="/admin" element={<AdminPanel />} />
