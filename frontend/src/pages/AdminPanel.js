@@ -33,7 +33,11 @@ const AdminPanel = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchMembers();
+  }, [fetchMembers]);
 
   const handleEdit = (member) => {
     setEditingId(member.id);
