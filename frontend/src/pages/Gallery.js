@@ -23,7 +23,11 @@ const Gallery = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchPhotos();
+  }, [fetchPhotos]);
 
   const handleAddPhoto = async (e) => {
     e.preventDefault();
