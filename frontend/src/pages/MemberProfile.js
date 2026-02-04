@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, MessageSquare, Send } from "lucide-react";
@@ -15,24 +15,21 @@ const MemberProfile = () => {
   const [loading, setLoading] = useState(true);
   const [newComment, setNewComment] = useState({ author_name: "", text: "" });
 
-  const fetchMemberData = useCallback(async () => {
-    try {
-      const [memberRes, commentsRes] = await Promise.all([
-        axios.get(`${API}/members/${memberId}`),
-        axios.get(`${API}/comments/${memberId}`)
-      ]);
-      setMember(memberRes.data);
-      setComments(commentsRes.data);
-    } catch (error) {
-      console.error("Erro ao buscar dados:", error);
-    } finally {
-      setLoading(false);
-    }
-  }, [memberId]);
-
   useEffect(() => {
-    fetchMemberData();
-  }, [fetchMemberData]);
+    const loadData = async () => {
+      try {
+        const memberRes = await axios.get(`${API}/members/${memberId}`);
+        const commentsRes = await axios.get(`${API}/comments/${memberId}`);
+        setMember(memberRes.data);
+        setComments(commentsRes.data);
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+  }, [memberId]);
 
   const handleSubmitComment = async (e) => {
     e.preventDefault();
@@ -45,7 +42,8 @@ const MemberProfile = () => {
         text: newComment.text
       });
       setNewComment({ author_name: "", text: "" });
-      fetchMemberData();
+      const commentsRes = await axios.get(`${API}/comments/${memberId}`);
+      setComments(commentsRes.data);
     } catch (error) {
       console.error("Erro ao adicionar comentário:", error);
     }
