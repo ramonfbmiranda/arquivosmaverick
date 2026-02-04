@@ -1,0 +1,123 @@
+{
+  "project_name": "Gangue da Maverick",
+  "design_philosophy": {
+    "theme": "Confidential Dossier / Mockumentary",
+    "tone": "Humorous, Secretive, Brotherhood, High-Stakes (Ironic)",
+    "visual_metaphor": "Digital Evidence Board & Secret Case Files",
+    "core_principles": [
+      "No boring grids - use 'messy' investigation board layouts",
+      "Texture is king - grain, paper, stamps",
+      "Typography must feel 'typed' or 'stamped'",
+      "Dark mode default - it's a secret operation"
+    ]
+  },
+  "typography": {
+    "font_family_heading": "\"Black Ops One\", system-ui, cursive",
+    "font_family_subheading": "\"Special Elite\", monospace",
+    "font_family_body": "\"Courier Prime\", monospace",
+    "font_scaling": {
+      "h1": "text-5xl md:text-7xl tracking-tighter uppercase",
+      "h2": "text-3xl md:text-4xl tracking-widest uppercase border-b-2 border-red-600 inline-block rotate-1",
+      "h3": "text-xl md:text-2xl font-bold text-yellow-500",
+      "body": "text-sm md:text-base leading-relaxed"
+    },
+    "installation_instructions": "Add these Google Fonts to index.html: <link href=\"https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap\" rel=\"stylesheet\">"
+  },
+  "colors": {
+    "palette": {
+      "background": "#0a0a0a",
+      "surface": "#121212",
+      "surface_highlight": "#1E1E1E",
+      "folder_tab": "#2C2C2C",
+      "paper_texture": "#f3f3f3 (use as overlay with multiply)",
+      "text_primary": "#E5E5E5",
+      "text_secondary": "#A1A1A1",
+      "accent_red": "#D32F2F",
+      "accent_yellow": "#FFC107",
+      "success": "#388E3C",
+      "warning": "#F57C00"
+    },
+    "tailwind_config_extension": {
+      "colors": {
+        "maverick": {
+          "bg": "#0a0a0a",
+          "paper": "#141414",
+          "red": "#D32F2F",
+          "yellow": "#FFC107",
+          "ink": "#E5E5E5",
+          "dim": "#555555"
+        }
+      }
+    }
+  },
+  "layout_strategies": {
+    "grid_system": "Masonry Investigation Board",
+    "container_styles": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "spacing": "Generous padding (p-8, p-12) to simulate a desk surface",
+    "z_index_layering": "High usage of z-index to stack 'photos' and 'notes' over each other"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-maverick-red text-white font-special-elite uppercase tracking-widest px-6 py-3 border-2 border-transparent hover:border-white hover:rotate-1 transition-all shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]",
+      "secondary": "bg-transparent text-maverick-yellow border-2 border-maverick-yellow font-courier-prime uppercase hover:bg-maverick-yellow hover:text-black transition-all"
+    },
+    "cards": {
+      "member_profile": "bg-maverick-paper border border-stone-700 p-4 shadow-xl rotate-1 hover:rotate-0 transition-transform relative overflow-hidden group",
+      "evidence_photo": "bg-white p-2 pb-8 shadow-lg rotate-[-2deg] hover:rotate-0 transition-all text-black font-handwriting text-center",
+      "note": "bg-yellow-200 text-black font-handwriting p-4 shadow-md rotate-1 w-64 absolute"
+    },
+    "visual_enhancers": {
+      "textures": "Use a fixed background noise overlay: 'fixed inset-0 pointer-events-none z-50 opacity-[0.03] bg-[url(\"https://grainy-gradients.vercel.app/noise.svg\")]'",
+      "stamps": "CSS border-double with stenciled text for 'CONFIDENTIAL' or 'TOP SECRET' stamps",
+      "tape": "Small rectangular div with semi-transparent white/yellow background, rotated 45deg, placed on corners of images"
+    }
+  },
+  "images": {
+    "textures": [
+      {
+        "url": "https://grainy-gradients.vercel.app/noise.svg",
+        "category": "texture",
+        "description": "Global noise overlay"
+      },
+      {
+        "url": "https://www.transparenttextures.com/patterns/aged-paper.png",
+        "category": "texture",
+        "description": "Paper texture for cards"
+      }
+    ],
+    "placeholders": [
+      {
+        "url": "https://images.unsplash.com/photo-1582136610579-2747d46e066c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwzfHxwYXBlciUyMHRleHR1cmUlMjBncnVuZ2UlMjBvbGR8ZW58MHx8fHwxNzcwMjI2MTQ4fDA&ixlib=rb-4.1.0&q=85",
+        "category": "background",
+        "description": "Grunge paper background"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1706790608211-4c03fd4f4d33?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwyfHxwYXBlciUyMHRleHR1cmUlMjBncnVuZ2UlMjBvbGR8ZW58MHx8fHwxNzcwMjI2MTQ4fDA&ixlib=rb-4.1.0&q=85",
+        "category": "background",
+        "description": "Brown paper texture"
+      }
+    ]
+  },
+  "motion": {
+    "entrance": "framer-motion: initial={{ opacity: 0, scale: 0.9, rotate: -5 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ type: 'spring' }}",
+    "hover": "hover:scale-105 hover:rotate-2 transition-transform duration-200 ease-out",
+    "typewriter": "Use a typewriter effect library for headings to simulate data being printed"
+  },
+  "specific_page_instructions": {
+    "landing": "Must feel like opening a physical dossier. Big 'CONFIDENTIAL' stamp animation. Enter button says 'OPEN FILE'.",
+    "member_grid": "Not a clean grid. A 'suspect board'. Items slightly scattered/rotated. Red strings connecting them (optional/svg).",
+    "timeline": "Vertical line with 'evidence' attached to it. Dates look like timestamps.",
+    "gallery": "Polaroids scattered on a table surface."
+  },
+  "accessibility": {
+    "contrast": "Ensure red text is only used on dark backgrounds if it meets 4.5:1, otherwise use it for borders/accents. Main text should be off-white (#E5E5E5) on black.",
+    "reduced_motion": "Disable rotation animations if prefers-reduced-motion is true."
+  },
+  "instructions_to_main_agent": [
+    "Install 'framer-motion' for drag constraints (evidence board feel).",
+    "Install 'lucide-react' for icons (File, Search, Lock, Siren).",
+    "Use the provided Google Fonts.",
+    "Create a 'Sticker' component that looks like a piece of tape or a stamp.",
+    "Do not make it look clean. It should look organized but 'lived in'."
+  ]
+}
