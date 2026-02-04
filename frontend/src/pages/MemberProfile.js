@@ -28,7 +28,11 @@ const MemberProfile = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [memberId]);
+
+  useEffect(() => {
+    fetchMemberData();
+  }, [fetchMemberData]);
 
   const handleSubmitComment = async (e) => {
     e.preventDefault();
