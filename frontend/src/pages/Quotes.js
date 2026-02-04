@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Quote as QuoteIcon, Trash2, Plus } from "lucide-react";
@@ -15,11 +15,7 @@ const Quotes = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newQuote, setNewQuote] = useState({ text: "", context: "", member_id: "" });
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const [quotesRes, membersRes] = await Promise.all([
         axios.get(`${API}/quotes`),
