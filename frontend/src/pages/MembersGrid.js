@@ -65,6 +65,22 @@ const MembersGrid = () => {
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05, rotate: 1 }}
+            onClick={() => navigate("/timeline")}
+            className="bg-transparent text-maverick-yellow border-2 border-maverick-yellow font-courier-prime uppercase px-6 py-3 hover:bg-maverick-yellow hover:text-black transition-all flex items-center gap-2"
+            data-testid="timeline-nav-button"
+          >
+            <Clock className="w-5 h-5" /> Linha do Tempo
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05, rotate: -1 }}
+            onClick={() => navigate("/bordoes")}
+            className="bg-transparent text-maverick-yellow border-2 border-maverick-yellow font-courier-prime uppercase px-6 py-3 hover:bg-maverick-yellow hover:text-black transition-all flex items-center gap-2"
+            data-testid="bordoes-nav-button"
+          >
+            <MessageCircle className="w-5 h-5" /> Bordões
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05, rotate: 1 }}
             onClick={() => navigate("/admin")}
             className="bg-transparent text-maverick-red border-2 border-maverick-red font-courier-prime uppercase px-6 py-3 hover:bg-maverick-red hover:text-white transition-all flex items-center gap-2"
             data-testid="admin-nav-button"
