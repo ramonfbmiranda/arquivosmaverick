@@ -21,7 +21,11 @@ const MembersGrid = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchMembers();
+  }, [fetchMembers]);
 
   const rotations = [-2, 1, -1, 2, -1.5, 1.5, -2.5, 2];
 
