@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ImagePlus, Trash2 } from "lucide-react";
@@ -14,11 +14,7 @@ const Gallery = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newPhoto, setNewPhoto] = useState({ url: "", caption: "" });
 
-  useEffect(() => {
-    fetchPhotos();
-  }, []);
-
-  const fetchPhotos = async () => {
+  const fetchPhotos = useCallback(async () => {
     try {
       const response = await axios.get(`${API}/photos`);
       setPhotos(response.data);
